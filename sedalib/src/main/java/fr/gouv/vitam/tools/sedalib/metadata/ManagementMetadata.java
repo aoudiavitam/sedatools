@@ -69,6 +69,8 @@ public class ManagementMetadata extends ComplexListType {
         metadataMap.put("ReuseRule", new ComplexListMetadataKind(ReuseRule.class, false));
         metadataMap.put("ClassificationRule",
                 new ComplexListMetadataKind(ClassificationRule.class, false));
+        metadataMap.put("HoldRule",
+                new ComplexListMetadataKind(HoldRule.class, false));
         metadataMap.put("LogBook", new ComplexListMetadataKind(AnyXMLType.class, false));
         metadataMap.put("NeedAuthorization",
                 new ComplexListMetadataKind(StringType.class, false));

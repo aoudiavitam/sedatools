@@ -132,6 +132,8 @@ public class SEDAObjectEditorConstants {
         minimalTagList.add("GpsLongitudeRef");
         minimalTagList.add("AppraisalRule");
         minimalTagList.add("AccessRule");
+        minimalTagList.add("HoldRule");
+        minimalTagList.add("HoldRuleGroup");
         minimalTagList.add("Rule");
         minimalTagList.add("ClassificationLevel");
         minimalTagList.add("FinalAction");
@@ -288,6 +290,13 @@ public class SEDAObjectEditorConstants {
         translateMap.put("DisseminationRule", "Règles diffusion");
         translateMap.put("ReuseRule", "Règles réutilisation");
         translateMap.put("StorageRule", "Règles DUC");
+        translateMap.put("HoldRule", "Règles de Gel");
+        translateMap.put("HoldRuleGroup", "Règle");
+        translateMap.put("HoldOwner", "Propriétaire");
+        translateMap.put("PreventRearrangement", "Blocage du reclassement");
+        translateMap.put("HoldReason", "Raison");
+        translateMap.put("HoldReassessingDate", "Date de révision");
+        translateMap.put("HoldEndDate", "Date de dégel");
         translateMap.put("Rule", "ID-règle");
         translateMap.put("StartDate", "Date de début");
         translateMap.put("PreventInheritance", "Héritage bloqué");

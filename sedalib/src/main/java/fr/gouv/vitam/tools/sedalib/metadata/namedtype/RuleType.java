@@ -51,6 +51,10 @@ abstract public class RuleType extends ComplexListType {
         super(elementName);
     }
 
+    public RuleType(String elementName, boolean isGroup) {
+        super(elementName, isGroup);
+    }
+
     /**
      * Instantiates a new rule type, with one rule and a date.
      *

@@ -78,6 +78,11 @@ public abstract class ComplexListType extends NamedTypeMetadata {
     public List<SEDAMetadata> metadataList;
 
     /**
+     * true if group element
+     */
+    public Boolean isGroup;
+
+    /**
      * Instantiates a new management.
      *
      * @param elementName the element name
@@ -85,6 +90,18 @@ public abstract class ComplexListType extends NamedTypeMetadata {
     public ComplexListType(String elementName) {
         super(elementName);
         this.metadataList = new ArrayList<SEDAMetadata>();
+        this.setGroup(false);
+    }
+
+    /**
+     * Instantiates a new management.
+     *
+     * @param elementName the element name
+     */
+    public ComplexListType(String elementName, Boolean isGroup) {
+        super(elementName);
+        this.metadataList = new ArrayList<SEDAMetadata>();
+        this.isGroup = isGroup;
     }
 
     /**
@@ -300,14 +317,18 @@ public abstract class ComplexListType extends NamedTypeMetadata {
      */
     public void toSedaXml(SEDAXMLStreamWriter xmlWriter) throws SEDALibException {
         try {
-            xmlWriter.writeStartElement(elementName);
+            if (!isGroup) {
+                xmlWriter.writeStartElement(elementName);
+            }
             for (SEDAMetadata sm : metadataList) {
                 sm.toSedaXml(xmlWriter);
             }
-            xmlWriter.writeEndElement();
+            if (!isGroup) {
+                xmlWriter.writeEndElement();
+            }
         } catch (XMLStreamException e) {
             throw new SEDALibException("Erreur d'écriture XML dans un élément d'un ComplexListType [" + getXmlElementName() + "]", e);
-        }
+                                                                                                                                                                                                                                                                                                                                                                                                      }
     }
 
     /*
@@ -541,5 +562,13 @@ public abstract class ComplexListType extends NamedTypeMetadata {
         if (clmk == null)
             return true;
         return clmk.many;
+    }
+
+    public Boolean getGroup() {
+        return isGroup;
+    }
+
+    public void setGroup(Boolean group) {
+        isGroup = group;
     }
 }
